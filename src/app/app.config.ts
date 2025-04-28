@@ -23,14 +23,13 @@ export const appConfig: ApplicationConfig = {
 */
 
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-
 import { routes } from './app.routes';
 import { provideRouter, withHashLocation } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 
-export const appConfig = {
+export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),provideHttpClient(),withHashLocation()// Enables hash-based routing
+    provideRouter(routes, withHashLocation()), // Provides the router with hash-based location strategy
+    provideHttpClient() // Provides HTTP client for making API requests
   ]
 };
-
