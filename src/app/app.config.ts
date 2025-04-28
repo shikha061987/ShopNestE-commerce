@@ -7,6 +7,8 @@ export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
 };
 */
+
+/*
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
@@ -18,5 +20,17 @@ export const appConfig: ApplicationConfig = {
     
   ]
 };
+*/
 
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+
+import { routes } from './app.routes';
+import { provideRouter, withHashLocation } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig = {
+  providers: [
+    provideRouter(routes),provideHttpClient(),withHashLocation()// Enables hash-based routing
+  ]
+};
 
